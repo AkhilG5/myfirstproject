@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Echo App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">EchoApp</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/echo">Submit</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Echo Application</h1>
+            <p>Submit your details seamlessly and experience smooth backend integration powered by Flask.</p>
+            <a href="/echo" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 EchoApp | Built with Flask & JavaScript</p>
+    </footer>
+
+</body>
+</html>
