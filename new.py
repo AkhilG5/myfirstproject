@@ -20,7 +20,7 @@
 # print(squared)
 
 
-prices = {"apple": 100, "banana": 50, "orange": 80}
+# prices = {"apple": 100, "banana": 50, "orange": 80}
 
 # discounted = dict(map(lambda item: (item[0], item[1] * 0.9), prices.items()))
 # print(discounted)
@@ -40,7 +40,21 @@ prices = {"apple": 100, "banana": 50, "orange": 80}
 # print(dic)
 
 
-a = "akhil"
-a=list(map(lambda x : x+"1",a))
-a="".join(a)
-print(a)
+# a = "akhil"
+# a=list(map(lambda x : x+"1",a))
+# a="".join(a)
+# print(a)
+
+
+
+# dict1 = {1:"ak",2:"bk",3:"ac"}
+# # for key , val in dict1.items():
+# #     dict1[key]=val+"2"
+# # print(dict1)
+# dict1 = dict(map(lambda x: (x[0],x[1]+"2"),dict1.items()))
+# print(dict1)
+
+
+l1 = [10,20,30,40,50]
+l1 = list(map(lambda x : str(x)+"_adi",l1))
+print(l1)
