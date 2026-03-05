@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Echo App</title>
+    <title>Home | Gecko App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
 </head>
 <body>
 
     <nav>
-        <div class="logo">EchoApp</div>
+        <div class="logo">Gecko</div>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/echo">Submit</a></li>
+            <li><a href="/">LogOut</a></li>
+            <li><a href="/about">About Us</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Echo Application</h1>
+            <h1>Welcome to Gecko Application</h1>
             <p>Submit your details seamlessly and experience smooth backend integration powered by Flask.</p>
             <a href="/echo" class="btn">Get Started</a>
         </div>
     </section>
+<section class="usecases">
+    <h2>Explore Use Cases</h2>
 
+    <div class="dropdown">
+        <button class="dropbtn">Select a Use Case</button>
+
+        <div class="dropdown-content">
+            <a href="#">User Authentication</a>
+            <a href="#">Form Submission Processing</a>
+            <a href="#">API Data Integration</a>
+            <a href="#">Dashboard Analytics</a>
+            <a href="#">Microservice Communication</a>
+        </div>
+    </div>
+
+    <div id="usecase-display">
+        <p>Select a use case to see details.</p>
+    </div>
+</section>
     <footer>
-        <p>© 2026 EchoApp | Built with Flask & JavaScript</p>
+        <p>© 2026 GeckoApp | Built with Flask & JavaScript</p>
     </footer>
 
 </body>
