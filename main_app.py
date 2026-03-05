@@ -15,9 +15,6 @@ conn = psycopg2.connect(
 def home():
     return render_template("index.html",error=None)
 
-# @app.route("/homepage")
-# def homepage():
-#     return render_template("homepage.html")
 
 @app.route("/health")
 def health():
