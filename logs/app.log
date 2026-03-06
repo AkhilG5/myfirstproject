@@ -1,1 +1,7 @@
-2026-03-06 14:15:05,230 | INFO | main_app_logger | inside / route
+2026-03-06 15:24:26,536 | INFO | main_app_logger | inside / route
+2026-03-06 15:24:53,773 | ERROR | database_logger | Error connecting to database: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-03-06 15:24:53,774 | ERROR | main_app_logger | Registration error: 'str' object has no attribute 'cursor'
