@@ -1,19 +1,45 @@
-import psycopg2
-from logger_config import get_logger # Assuming logger_config.py sets up a logger
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Session
+from logger_config import get_logger
 
 log = get_logger("database_logger")
 
-def get_db_connection():
-    try:
-        conn = psycopg2.connect(
-            host="localhost",
-            database="myfirstdb",
-            user="postgres",
-            password="root"
-        )
-        log.info("Connection established successfully")  # Log successful connection
+# Database connection string (SQLAlchemy format)
+DATABASE_URL = "postgresql://postgres:root@localhost/myfirstdb"
 
-        return conn
-    except psycopg2.Error as e:
-        log.error(f"Error connecting to database: {e}")  # Log the error
-        return "Database connection failed"  # Return an error message instead of None
+# Create engine
+try:
+    engine = create_engine(DATABASE_URL, echo=False)
+    log.info("SQLAlchemy engine created successfully")
+except Exception as e:
+    log.error(f"Error creating SQLAlchemy engine: {e}")
+    engine = None
+
+# Create session factory
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def get_db_connection():
+    """Get a database session"""
+    try:
+        if engine is None:
+            log.error("Engine is not initialized")
+            return None
+        
+        session = SessionLocal()
+        log.info("Database session established successfully")
+        return session
+    except Exception as e:
+        log.error(f"Error establishing database session: {e}")
+        return None
+
+def get_db():
+    """Dependency for FastAPI/Flask applications"""
+    db = get_db_connection()
+    try:
+        yield db
+    finally:
+        if db:
+            db.close()
+            log.info("Database session closed")
+
+

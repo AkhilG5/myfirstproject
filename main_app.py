@@ -1,8 +1,10 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for
+from flask import Flask, jsonify, request, render_template, redirect, url_for, session
+from sqlalchemy import text
 from database import get_db_connection
 from logger_config import get_logger
 
 app = Flask(__name__)
+app.secret_key = "7065f4b97bec0a6fd86af4a393b9d241a7d457393ac81e37bcf2365fd46bd8bf"  # Required for session management
 log=get_logger("main_app_logger")
 
 @app.route("/")
@@ -22,29 +24,29 @@ def login():
         if not name or not password:
             return "Username and Password required", 400
 
+        db_session = get_db_connection()
+        if db_session is None:
+            return render_template("index.html", error="Database connection failed")
+        
         try:
-            conn = get_db_connection()
-            if conn is None:
-                return render_template("index.html", error="Database connection failed")
-            
-            cur = conn.cursor()
-            query = """
-            SELECT * FROM users_details
-            WHERE username=%s AND password=%s
-            """
-            cur.execute(query, (name, password))
-            user = cur.fetchone()
+            query = text("""
+            SELECT * FROM user_details
+            WHERE username=:username AND password=:password
+            """)
+            result = db_session.execute(query, {"username": name, "password": password})
+            user = result.fetchone()
             
             if user:
-                return render_template("homepage.html", name=name)
+                log.info(f"User {name} logged in successfully")
+                session["username"] = name  # Store username in Flask session
+                return render_template("homepage.html", name=name) 
             else:
                 return render_template("index.html", error="Invalid username or password")
         except Exception as e:
             log.error(f"Error in login: {e}")
             return render_template("index.html", error="An error occurred")
         finally:
-                cur.close()
-                conn.close()
+            db_session.close()
 
     return render_template("index.html", error=None)
 
@@ -71,19 +73,26 @@ def register():
         if password != confirm_password:
             return "Passwords do not match"
 
+        db_session = get_db_connection()
+        if db_session is None:
+            return "Database connection failed", 500
+        
         try:
-            conn = get_db_connection()
-            cur = conn.cursor()
-
-            cur.execute(
-                """
+            db_session.execute(
+                text("""
                 INSERT INTO user_details (username,password,mobile_no,email,profile)
-                VALUES (%s,%s,%s,%s,%s)
-                """,
-                (username, password, mobile, email, profile)
+                VALUES (:username,:password,:mobile,:email,:profile)
+                """),
+                {
+                    "username": username,
+                    "password": password,
+                    "mobile": mobile,
+                    "email": email,
+                    "profile": profile
+                }
             )
 
-            conn.commit()
+            db_session.commit()
 
             log.info(f"User {username} registered successfully")
 
@@ -91,19 +100,30 @@ def register():
 
         except Exception as e:
             log.error(f"Registration error: {e}")
+            db_session.rollback()
             return "Registration failed", 500
 
         finally:
-            if 'cur' in locals():
-                cur.close()
-            if 'conn' in locals():
-                conn.close()
+            db_session.close()
 
     return render_template("register.html")
 
 @app.route('/forgot-password', methods=['GET','POST'])
 def forgot_password():
     return render_template("forgot_password.html")
+
+
+@app.route("/logout")
+def logout():
+    username = session.get("username")
+
+    if username:
+        log.info(f"User '{username}' logged out successfully")
+
+    session.clear()
+
+    return render_template("index.html",error=None)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

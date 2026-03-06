@@ -5,3 +5,76 @@ connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection re
 	Is the server running on that host and accepting TCP/IP connections?
 
 2026-03-06 15:24:53,774 | ERROR | main_app_logger | Registration error: 'str' object has no attribute 'cursor'
+2026-03-06 15:28:34,045 | INFO | main_app_logger | inside / route
+2026-03-06 15:29:06,780 | INFO | database_logger | Connection established successfully
+2026-03-06 15:29:06,800 | INFO | main_app_logger | User kole registered successfully
+2026-03-06 15:37:42,269 | INFO | main_app_logger | inside / route
+2026-03-06 15:37:50,603 | INFO | database_logger | Connection established successfully
+2026-03-06 15:37:50,607 | ERROR | main_app_logger | Error in login: relation "users_details" does not exist
+LINE 2:             SELECT * FROM users_details
+                                  ^
+
+2026-03-06 15:39:42,633 | INFO | main_app_logger | inside / route
+2026-03-06 15:39:49,621 | INFO | database_logger | Connection established successfully
+2026-03-06 17:10:24,394 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:10:25,064 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:10:31,731 | INFO | main_app_logger | inside / route
+2026-03-06 17:10:49,531 | INFO | database_logger | Database session established successfully
+2026-03-06 17:10:49,531 | ERROR | main_app_logger | Error in login: 'Session' object has no attribute 'cursor'
+2026-03-06 17:12:17,254 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:12:26,593 | INFO | main_app_logger | inside / route
+2026-03-06 17:12:36,695 | INFO | database_logger | Database session established successfully
+2026-03-06 17:12:36,695 | ERROR | main_app_logger | Error in login: 'Session' object has no attribute 'cursor'
+2026-03-06 17:13:59,021 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:14:01,532 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:14:03,895 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:14:19,424 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:14:19,424 | INFO | database_logger | Database session established successfully
+2026-03-06 17:15:10,720 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:15:11,854 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:15:16,633 | INFO | main_app_logger | inside / route
+2026-03-06 17:15:32,092 | INFO | database_logger | Database session established successfully
+2026-03-06 17:15:32,092 | ERROR | main_app_logger | Error in login: Textual SQL expression '\n            SELECT * FRO...' should be explicitly declared as text('\n            SELECT * FRO...')
+2026-03-06 17:16:28,096 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:16:32,569 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:16:47,956 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:16:47,962 | INFO | database_logger | Database session established successfully
+2026-03-06 17:17:10,607 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:17:19,526 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:17:20,632 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:17:26,845 | INFO | main_app_logger | inside / route
+2026-03-06 17:17:36,344 | INFO | database_logger | Database session established successfully
+2026-03-06 17:22:43,233 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:22:57,118 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:22:58,258 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:23:07,576 | INFO | main_app_logger | inside / route
+2026-03-06 17:23:37,497 | INFO | database_logger | Database session established successfully
+2026-03-06 17:23:37,612 | INFO | main_app_logger | User aditi logged in successfully
+2026-03-06 17:24:23,391 | INFO | main_app_logger | inside / route
+2026-03-06 17:24:38,148 | INFO | database_logger | Database session established successfully
+2026-03-06 17:24:38,150 | INFO | main_app_logger | User kole logged in successfully
+2026-03-06 17:25:00,140 | INFO | main_app_logger | inside / route
+2026-03-06 17:25:09,569 | INFO | database_logger | Database session established successfully
+2026-03-06 17:25:09,571 | INFO | main_app_logger | User kole logged in successfully
+2026-03-06 17:25:32,197 | INFO | main_app_logger | inside / route
+2026-03-06 17:35:27,879 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:35:33,552 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:48:12,731 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:49:02,116 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:49:03,292 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:54:25,141 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:54:26,230 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 17:54:31,302 | INFO | main_app_logger | inside / route
+2026-03-06 17:54:46,165 | INFO | database_logger | Database session established successfully
+2026-03-06 17:54:46,278 | INFO | main_app_logger | User adi logged in successfully
+2026-03-06 17:54:46,279 | ERROR | main_app_logger | Error in login: 'Session' object does not support item assignment
+2026-03-06 18:03:50,103 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:09:05,643 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:10:29,928 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:10:54,691 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:10:55,832 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:12:26,206 | INFO | database_logger | SQLAlchemy engine created successfully
+2026-03-06 18:12:55,015 | INFO | main_app_logger | inside / route
+2026-03-06 18:13:23,945 | INFO | database_logger | Database session established successfully
+2026-03-06 18:13:24,127 | INFO | main_app_logger | User aditi logged in successfully
+2026-03-06 18:13:28,946 | INFO | main_app_logger | User 'aditi' logged out successfully
